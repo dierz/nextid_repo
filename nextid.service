@@ -1,0 +1,15 @@
+[Unit]
+Description=NextId service tool
+After=network.target
+After=mariadb.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=vagrant
+ExecStart=/home/vagrant/nextid_repo/nextid
+
+[Install]
+WantedBy=multi-user.target
