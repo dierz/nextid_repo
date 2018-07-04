@@ -9,7 +9,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=vagrant
-ExecStart=/home/vagrant/nextid_repo/nextid
+ExecStart=/home/vagrant/nextid_repo/nextid_server
 
 [Install]
 WantedBy=multi-user.target
