@@ -80,7 +80,7 @@ void *connection_handler(void *socket_desc)
      
      conn= mysql_init(NULL);
 
-    if (!mysql_real_connect(conn, "localhost","root", "", "counter", 0, NULL, 0)) 
+    if (!mysql_real_connect(conn, "localhost","root", "12345", NULL, 3333, NULL, 0)) 
     {
         fprintf(stderr, "%s\n", mysql_error(conn));
         return NULL;
