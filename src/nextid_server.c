@@ -77,6 +77,7 @@ void *connection_handler(void *socket_desc)
     int sock = *(int*)socket_desc;
     int read_size;
     char client_message[2000];
+    char respond[100];
      
      conn= mysql_init(NULL);
 
@@ -128,14 +129,14 @@ void *connection_handler(void *socket_desc)
         res = mysql_use_result(conn);
         mysql_free_result(res);
 
-        snprintf(client_message, 2000, "%d", d);
+        snprintf(respond, 100, "%d", d);
 
     }
     else{
     	// In case of wrong option printed
-        snprintf(client_message, 2000, "Unknown command");
+        snprintf(respond, 100, "Unknown command");
     }
-        write(sock , client_message , strlen(client_message));
+        write(sock , respond , strlen(respond));
     }
      
     if(read_size == 0)
