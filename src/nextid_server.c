@@ -41,7 +41,6 @@ int main(int argc , char *argv[])
     listen(socket_desc , 3);
      
     //Accept incoming connection
-    puts("Waiting for incoming connections...");
     c = sizeof(struct sockaddr_in);
      
     while( (client_sock = accept(socket_desc, (struct sockaddr *)&client, (socklen_t*)&c)) )
@@ -91,7 +90,6 @@ void *connection_handler(void *socket_desc)
     while( (read_size = recv(sock , client_message , 2000 , 0)) > 0 )
     {
         client_message[read_size]='\0';
-        printf("%s\n",client_message);
     if(strcmp(client_message, "gen")==0){
         char q1[300],q2[300],q3[300];
         // 3-Step algorithm : Insert --> Select --> Delete
